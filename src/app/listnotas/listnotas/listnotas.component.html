@@ -1,0 +1,37 @@
+<div class="card-body p-b-0">
+    <form class="form-material" [formGroup]="notasform" (ngSubmit)="on_submit(notasform.value)" #form="ngForm">
+        <div class="row">
+            <div class="col-md-6">
+                    <input type="text" placeholder="Nombre" class="form-control" id="txt_name" formControlName="name">
+                    <div class="err" *ngIf="errorname">
+                        <span  style="color: red;">*Ingrese un nombre</span>
+                        
+                    </div>
+            </div>
+            <div class="col-md-6">
+                    <input type="text" placeholder="descripcion" class="form-control" id="txt_descripcion" formControlName="descripcion">                 
+                    <div class="err" *ngIf="errodesc">
+                        <span  style="color: red;">*Ingrese una descripcion</span>     
+                    </div>
+            </div>
+
+        </div>
+        <div class="row m-t-30">
+            <button type="submit" class="btn btn-primary btn-sm " style="margin-left: 29px;"><i class="mdi mdi-content-save"></i> Guardar</button>
+            <button type="button" class="btn btn-danger btn-sm " (click)="remove()"  style="margin-left: 29px;"><i class="mdi mdi-content-save"></i> Limpiar</button>
+        </div>
+    </form>
+  </div>
+  <div class="container ">
+    <div class="row">
+        <div class="bg-light  col-4" *ngFor="let item of lstNotas">
+            <div class="card">
+                <div class="card-header fecha">{{item.fecha| date:"dd-MM-yy"}}</div>
+                <div class="card-body">
+                    <h5 class="card-title titulo">{{item.nombre}}</h5>
+                    <p class="card-text desc">{{item.descripcion}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

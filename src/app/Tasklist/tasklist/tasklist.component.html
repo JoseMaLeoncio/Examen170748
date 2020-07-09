@@ -1,0 +1,31 @@
+<div class="card-body p-b-0">
+    <h1>Ingrese los datos</h1>
+    <div>
+    <form (submit)="addTodo($event)">
+    <input [(ngModel)]="newTodo" (keyup.enter)="newTodo=''" class="form-control" name="newTodo">
+    <br>
+    <button class="btn btn-primary" type="submit" [disabled]="newTodo===''">Agregar Tarea</button>
+    </form>
+    </div>
+    <br>
+    <div [hidden]="newTodo">
+      Escribiendo...
+    </div>
+
+    <div [hidden]="!newTodo">
+   
+      Escribiendo: {{ newTodo }}
+    </div>
+
+    <ul>
+    <li *ngFor="let todoObj of todos; let i=index">
+    <input type="checkbox" class="checkbox"  [(ngModel)]="todoObj.completed" [ngClass]="{'disabled':todoObj.completed}"/>
+    <span [ngClass]="{'checked': todoObj.completed}">{{todoObj.newTodo}} </span>
+    
+      </li>
+      </ul>
+
+    <div class="mtop20">
+    <button class="btn btn-danger" (click)="deleteAll()">Eliminar</button>
+    </div>
+
