@@ -64,7 +64,7 @@ export class ListnotasComponent implements OnInit {
       if (localStorage.getItem('notas') ){
         this.lstNotas = JSON.parse(localStorage.getItem('notas'));
       }else{
-        this.lstNotas = [];
+        this.lstNotas=[];
     }
   }
 

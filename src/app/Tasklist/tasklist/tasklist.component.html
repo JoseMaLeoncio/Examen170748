@@ -19,7 +19,7 @@
 
     <ul>
     <li *ngFor="let todoObj of todos; let i=index">
-    <input type="checkbox" class="checkbox"  [(ngModel)]="todoObj.completed" [ngClass]="{'disabled':todoObj.completed}"/>
+    <input type="checkbox" class="checkbox"  (click)='checkbox(todos)'  [(ngModel)]="todoObj.completed" [ngClass]="{'disabled':todoObj.completed}"/>
     <span [ngClass]="{'checked': todoObj.completed}">{{todoObj.newTodo}} </span>
     
       </li>

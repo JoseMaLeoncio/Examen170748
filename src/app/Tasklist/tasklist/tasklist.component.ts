@@ -51,10 +51,16 @@ export class TasklistComponent implements OnInit {
     if (localStorage.getItem('todos') ){
       this.todos = JSON.parse(localStorage.getItem('todos'));
     }else{
-      this.todos = [];
+      this.todos=[];
     }
   }
-
+  
+  checkbox(todos){
+    for (let i=0; i<this.todos.length; i++){
+        let todox = this.todos[i];
+        this.guardarArreglo();
+    }
+  }
 
   is_valid(control:string): boolean{
     return false;
